@@ -1,4 +1,4 @@
-# TODO: Make sure that you understand all of the provided source code in
+# Make sure that you understand all of the provided source code in
 # this file and the way in which it performs set visualization with supervenn!
 
 """Visualize the sets using the supervenn package."""
