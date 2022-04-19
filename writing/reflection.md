@@ -1,11 +1,5 @@
 # Text Analysis
 
-TODO: Make sure that you delete all of the TODO markers in this file and either
-rewrite or delete all of the prompts. Ultimately, this file should contained
-polished writing that is free of mistakes in grammar, spelling, or Markdown
-syntax. It should also be a polished article that is suitable for publication on
-your professional web site.
-
 TODO: Make sure that your GitHub repository contains the following text files:
 
 - `generated_one.txt`: generated text from the `aitextgen` program provided as a part of this project
@@ -21,7 +15,7 @@ TODO: Make sure that your GitHub repository contains the following graphics file
 
 TODO: You must use a command like `git add` to ensure that certain files exist in the repository.
 
-## Add Your Name Here
+## Evelyn Griffith
 
 ## Program Input and Output
 

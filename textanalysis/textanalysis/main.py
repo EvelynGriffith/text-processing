@@ -2,18 +2,19 @@
 # this file and the way in which it provides the entire command-line interface!
 
 """Define the command-line interface for the textanalysis program."""
-
+# from rich.console import Console so that the print statments can use console.print()
 from rich.console import Console
 
 from pathlib import Path
-
+# This will allow the main file to access the extract.py file from the textanalysis folder
 from textanalysis import extract
+# this will allow the main.py file to access the visualize.py file from the textanalysis folder.
 from textanalysis import visualize
-
+# this allows us to use a function called a cli function through cli = typer.Typer()
 import typer
 
 cli = typer.Typer()
-
+# This is establishing console as equal to Console() so that we can use them in print statements
 console = Console()
 
 
