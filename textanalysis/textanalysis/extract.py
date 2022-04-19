@@ -55,23 +55,23 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
         for item in line.split(" "):
             if "\n" not in item:
                 unique_list.add(item)
-            if item is not item.upper():
+            elif item != item.isupper():
                 unique_list.add(item)
-            if "!" not in item:
+            elif "!" not in item:
                 unique_list.add(item)
-            if "." not in item:
+            elif "." not in item:
                 unique_list.add(item)
-            if "'" not in item:
+            elif "'" not in item:
                 unique_list.add(item)
-            if "''" not in item:
+            elif "''" not in item:
                 unique_list.add(item)
-            if "-" not in item:
+            elif "-" not in item:
                 unique_list.add(item)
-            if "," not in item:
+            elif "," not in item:
                 unique_list.add(item)
-            if ":" not in item:
+            elif ":" not in item:
                 unique_list.add(item)
-            if " " not in item:
+            elif " " not in item:
                 unique_list.add(item)
         output.append(unique_list)
     return output
