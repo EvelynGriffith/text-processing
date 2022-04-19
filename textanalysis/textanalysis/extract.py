@@ -1,8 +1,7 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 
-# Add the required imports at the top of the file
-
-import fileinput 
+# Add the required imports at the top of the file 
+from pkgutil import iter_modules
 import re
 
 NEWLINES_RE = re.compile(r"\n{2,}")
@@ -22,7 +21,7 @@ def extract_lines_not_including_blanks(input_lines: str) -> List[str]:
     """Extract all of the lines, not including the blanks lines."""
     # extract all of the lines in the file, using splitlines
     for line in input_lines.splitlines():
-        if line != "":
+        if len(line) != 0:
             return line
     # filter out all of the blank lines that have a length of zero
     # return the list of non-blank lines
@@ -49,13 +48,30 @@ def extract_paragraphs(input_lines: str) -> List[str]:
 def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     """Extract all of the unique words in each one of the paragraphs."""
     # go through each of the strings inside of the list and
-    unique_list = []
     # extract the unique words in each of the paragraphs
-    for word in paragraphs.splitlines():
-        unique = set()
-        word.split(" ")
-        if word not in unique:
-            unique_list.append(word)
+    for line in paragraphs:
+        unique_list = set()
+        for item in line.split(" "):
+            if "\n" not in item:
+                unique_list.add(item)
+            if item is not item.upper():
+                unique_list.add(item)
+            if "!" not in item:
+                unique_list.add(item)
+            if "." not in item:
+                unique_list.add(item)
+            if "'" not in item:
+                unique_list.add(item)
+            if "''" not in item:
+                unique_list.add(item)
+            if "-" not in item:
+                unique_list.add(item)
+            if "," not in item:
+                unique_list.add(item)
+            if ":" not in item:
+                unique_list.add(item)
+            if " " not in item:
+                unique_list.add(item)
     return unique_list
     # collect the unique words for each paragraph in a set of strings
     # store each set of unique words in a separate index of a list
@@ -67,13 +83,13 @@ def extract_unique_words(sets: List[Set[str]]) -> Set[str]:
     """Extract all of the unique words shared across the sets in a list."""
     # create a single set of strings that includes all of the words
     # that that are unique across all of the sets for each of the paragraphs
-    single_set = set([extract_unique_words_paragraphs(sets)])
-    return single_set
-    
+    new_set = sets.union(*sets)
+    return new_set
+
 
 def extract_common_words(sets: List[Set[str]]) -> Set[str]:
     """Extract all of the unique words shared in common by sets in a list."""
     # create a single set of strings that includes all of the words
     # that are found in every one of the sets for each paragraph in the text
-    single_set = set([extract_unique_words(sets)])
-    return single_set
+    new_set = sets.intersection(*sets)
+    return new_set
