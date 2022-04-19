@@ -51,30 +51,12 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     # extract the unique words in each of the paragraphs
     output = []
     for line in paragraphs:
-        unique_list = set()
-        for item in line.split(" "):
-            if "\n" not in item:
-                unique_list.add(item)
-            elif item != item.isupper():
-                unique_list.add(item)
-            elif "!" not in item:
-                unique_list.add(item)
-            elif "." not in item:
-                unique_list.add(item)
-            elif "'" not in item:
-                unique_list.add(item)
-            elif "''" not in item:
-                unique_list.add(item)
-            elif "-" not in item:
-                unique_list.add(item)
-            elif "," not in item:
-                unique_list.add(item)
-            elif ":" not in item:
-                unique_list.add(item)
-            elif " " not in item:
-                unique_list.add(item)
-        output.append(unique_list)
-    return output
+        symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?", ";", ":", "-", "-", "+", "="] 
+        for symb in symbols:
+            lines = line.replace(symb, "")
+            words = lines.split(" ")
+        outputs = output.append(words)
+    return outputs
     # collect the unique words for each paragraph in a set of strings
     # store each set of unique words in a separate index of a list
     # return a list that contains at each index a set of strings
