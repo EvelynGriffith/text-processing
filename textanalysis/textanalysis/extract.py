@@ -1,7 +1,6 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 
 # Add the required imports at the top of the file 
-from pkgutil import iter_modules
 import re
 
 NEWLINES_RE = re.compile(r"\n{2,}")
@@ -49,14 +48,20 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     """Extract all of the unique words in each one of the paragraphs."""
     # go through each of the strings inside of the list and
     # extract the unique words in each of the paragraphs
-    output = []
-    for line in paragraphs:
-        symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?", ";", ":", "-", "-", "+", "="] 
-        for symb in symbols:
-            lines = line.replace(symb, "")
-            words = lines.split(" ")
-        outputs = output.append(words)
-    return outputs
+    unique_list = []
+    for line in " ".join(paragraphs):
+        symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?",
+         ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---"] 
+        # if words in line.replace((" ".join(symbols)), ""):\
+        joined_symbols = ",".join(symbols)
+        for words in line.split():
+            # for symb in joined_symbols:
+            #     words = line.split(" ") 
+            words.replace(joined_symbols, "")
+                # if outputs is not None:
+            outputs = unique_list.append(words)
+            # go from list to set to list
+        return outputs
     # collect the unique words for each paragraph in a set of strings
     # store each set of unique words in a separate index of a list
     # return a list that contains at each index a set of strings
