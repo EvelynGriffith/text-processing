@@ -84,11 +84,11 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
          ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---", "{", "}", "[", "]"] 
     for para in paragraphs:
         new_paragraph = para.lower()
-        print(new_paragraph)
+        # print(new_paragraph)
         # if words in line.replace((" ".join(symbols)), ""):\
         # joined_symbols = ",".join(symbols)
-        for symb in symbols:
-            removed_paragraph = new_paragraph.replace(symb, " ")
+        # for symb in symbols:
+        removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','',new_paragraph)
         print(removed_paragraph)
             # for words in para.split():
             # sentences = new_paragraph.splitlines()
