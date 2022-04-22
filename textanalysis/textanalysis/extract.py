@@ -80,22 +80,33 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     # extract the unique words in each of the paragraphs
     unique_set = set()
     unique_list = []
+    symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?",
+         ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---", "{", "}", "[", "]"] 
     for para in paragraphs:
-        symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?",
-         ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---"] 
+        para.lower()
+        
         # if words in line.replace((" ".join(symbols)), ""):\
         # joined_symbols = ",".join(symbols)
         for symb in symbols:
-            for words in para.split():
-                if symb == words:
+            new_paragraph = para.replace(symb, " ")
+        print(new_paragraph)
+            # for words in para.split():
+            # sentences = new_paragraph.splitlines()
+            # for single_sentence in sentences:
+            #     word = single_sentence.split(" ")
+
+                # print(word)
+            #     if symb == words:
+            #         print(words)
                 # for symb in joined_symbols:
                 #     words = line.split(" ") 
-                    words.replace(symb, "")
-                    # if outputs is not None:
-                unique_set.add(words)
-        unique_list.append(unique_set)
-            # go from list to set to list
-    return unique_list
+    #                 # if outputs is not None:
+    #         unique_set.add(word)
+    #         # print(unique_set)
+    #     unique_list.append(unique_set)
+    #     # print(unique_list)
+    #         # go from list to set to list
+    # return unique_list
     # collect the unique words for each paragraph in a set of strings
     # store each set of unique words in a separate index of a list
     # return a list that contains at each index a set of strings
