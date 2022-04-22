@@ -1,8 +1,8 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 
 # Add the required imports at the top of the file 
-from itertools import count
 import re
+import string
 
 NEWLINES_RE = re.compile(r"\n{2,}")
 
@@ -88,8 +88,10 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
         # if words in line.replace((" ".join(symbols)), ""):\
         # joined_symbols = ",".join(symbols)
         # for symb in symbols:
-        removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','',new_paragraph)
-        print(removed_paragraph)
+        # removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','" "',new_paragraph)
+        new = re.escape(string.punctuation)
+        print(new(new_paragraph))
+        return new(new_paragraph)
             # for words in para.split():
             # sentences = new_paragraph.splitlines()
             # for single_sentence in sentences:
