@@ -1,6 +1,7 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 
 # Add the required imports at the top of the file 
+from itertools import count
 import re
 
 NEWLINES_RE = re.compile(r"\n{2,}")
@@ -11,17 +12,46 @@ from typing import Set
 def extract_lines_including_blanks(input_lines: str) -> List[str]:
     """Extract all of the lines, including the blanks lines."""
     # extract all of the lines in the file, using splitlines
+    # return input_lines.readlines()
+    #     return len(lines)
+    # with input_lines as fp:
+    #     num_lines = len(fp.readlines())
+    #     return num_lines
+    # for line in input_lines:
+    #     if line in input_lines:
+    #         len_lines += 1
+    #     print(len_lines)
+    # count = 0
+    # for line in input_lines:
+    #     if line.strip():
+    #         if line is not None:
+    #             count += 1
+    #     return count
+    count = []
     for line in input_lines.splitlines():
-        return line
+        count.append(line)
+        # if line:
+        #     count += 1
+        #     print(count)
+    return count
+
     # return all of the extracted lines
 
 
 def extract_lines_not_including_blanks(input_lines: str) -> List[str]:
     """Extract all of the lines, not including the blanks lines."""
     # extract all of the lines in the file, using splitlines
+    # for line in input_lines.splitlines():
+    #     if len(line) != 0:
+    #         return line
+    count = []
     for line in input_lines.splitlines():
-        if len(line) != 0:
-            return line
+        if line != "":
+            count.append(line)
+        # if line:
+        #     count += 1
+        #     print(count)
+    return count
     # filter out all of the blank lines that have a length of zero
     # return the list of non-blank lines
 
@@ -48,20 +78,24 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     """Extract all of the unique words in each one of the paragraphs."""
     # go through each of the strings inside of the list and
     # extract the unique words in each of the paragraphs
+    unique_set = set()
     unique_list = []
-    for line in " ".join(paragraphs):
+    for para in paragraphs:
         symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?",
          ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---"] 
         # if words in line.replace((" ".join(symbols)), ""):\
-        joined_symbols = ",".join(symbols)
-        for words in line.split():
-            # for symb in joined_symbols:
-            #     words = line.split(" ") 
-            words.replace(joined_symbols, "")
-                # if outputs is not None:
-            outputs = unique_list.append(words)
+        # joined_symbols = ",".join(symbols)
+        for symb in symbols:
+            for words in para.split():
+                if symb == words:
+                # for symb in joined_symbols:
+                #     words = line.split(" ") 
+                    words.replace(symb, "")
+                    # if outputs is not None:
+                unique_set.add(words)
+        unique_list.append(unique_set)
             # go from list to set to list
-        return outputs
+    return unique_list
     # collect the unique words for each paragraph in a set of strings
     # store each set of unique words in a separate index of a list
     # return a list that contains at each index a set of strings
