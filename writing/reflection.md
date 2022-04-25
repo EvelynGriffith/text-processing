@@ -33,7 +33,22 @@ TODO: Use a fenced code block to provide the output for this command.
 
 ### What is inside of the `generated_two.txt` file that `aitextgen` created?
 
-TODO: Use a fenced code block to provide the contents of the file.
+```The Federal Reserve has been trying to figure out how much money will be available to the economy of the United States from the Federal Reserve, although the Fed is pushing back its efforts.
+
+The Federal Reserve Board is pushing back on the idea that the U.S. economy has reached a point where it is no longer "in an economy of money," according to a report released by the Fed last week.
+
+The report, titled "The American Economy: The Federal Reserve Is Making a Mistake," points to a few key facts.
+
+The Fed has no plans to raise interest rates.
+
+"In fact, the Federal Reserve expects to raise rates before the next set of economic growth rates are set and before the next monetary policy cycle begins," the report said.
+
+The Fed didn't make any specific announcement about how much money will be available to the economy in the report, which was released just before the third quarter in which the government's unemployment rate was at its lowest level in more than a decade.
+
+But it did say that if policymakers are willing to raise rates, "there is no reason to expect that the monetary policy rate will be substantially lower than at present."
+
+The Fed has been trying to figure out how much money
+```
 
 ### What is inside of the `input_two.txt` file that you downloaded/wrote and saved?
 
@@ -47,8 +62,6 @@ TODO: Alternatively, you can write your own text that you want to analyze.
 
 #### Please explain each line of source code from the `extract` module
 
-TODO: Write at least one paragraph to explain the following source code
-
 ```python
 def extract_paragraphs(input_lines: str) -> List[str]:
     """Extract all of the paragraphs from the lines of textual input."""
@@ -59,6 +72,8 @@ def extract_paragraphs(input_lines: str) -> List[str]:
     paragraphs = [p + "\n" for p in split_text if p.strip()]
     return paragraphs
 ```
+
+This function is going to start, like every other function, with a function definition. This is going to name the function (in this case it will be named `extract_paragraphs`) and then it will state the input and ouput variable types. This function will take in a string called input_lines and it will produce a list of strings in this case called `paragraphs`. The main goal of this function is to extract the number of paragraphs from the file and return a list of strings called paragraphs. This function is going to create a variable called `no_newlines` which is going to take `input_lines` and strip it of its lines in between paragraphs. It will then take a variable called `split_text` and it will use the NEWLINES_RE.split() function to split up the paragraphs based on newline breaks. Then the function will take the variable paragraphs and create a lambda variable the will essentially iterate through and create a list for every paragraph that was in the file.
 
 ## Analyzing the Text
 
@@ -83,11 +98,11 @@ TODO: Provide response to this question, demonstrating your knowledge of the use
 
 ### What are the similarities and differences between `set`, `FrozenSet`, and `FiniteSet`?
 
-TODO: Provide a response to this question, explaining these three implementations of the set discrete structure.
+The biggest differences between sets FrozenSets and FiniteSets is actually in the titles. A FiniteSet is going to have a fixed number of elements in it and it is always going to have a fixed size. It is going to offer some operations as built-in sets and add additional set-theoretic operations. Another nice thing about FiniteSets is that they are immutable while regular sets are not. A regular set is going to be mutable and therefore unhashable whereas a FiniteSet will be hashable. A FrozenSet however is a little bit different than both of these things. It is going to be an immutable version of a python set, just like a FiniteSet but it is going to act more like a key in a dictionary than an actual Set.
 
 ### How is the `set` discrete structure similar to and different from the `list` and the `tuple`?
 
-TODO: Provide a response to this question, leveraging your course note and the Proactive Programmers web site.
+A set is different than a list and a tuple because a Set has no order in the way that it is stored. It is going to 
 
 ### At your own option, do you have any other insights to share about this assignment?
 

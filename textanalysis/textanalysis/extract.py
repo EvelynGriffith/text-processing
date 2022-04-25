@@ -78,20 +78,38 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     """Extract all of the unique words in each one of the paragraphs."""
     # go through each of the strings inside of the list and
     # extract the unique words in each of the paragraphs
-    unique_set = set()
     unique_list = []
-    symbols = [",", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", ".", "?",
-         ";", ":", "-", "-", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "/", "---", "{", "}", "[", "]"] 
+
+    symbols = [",", ".", "---"] 
     for para in paragraphs:
-        new_paragraph = para.lower()
+        lines = para.splitlines()
+        para_set = set()
+
+        for line in lines:
+            line_str = line
+
+            for symbol in symbols:
+                if symbol in line_str:
+                    line_str = line_str.replace(symbol, " ")
+
+            line_list = line_str.split()
+
+            for word in line_list:
+                if word not in para_set:
+                    para_set.add(word)
+
+        unique_list.append(para_set)
+
+    return unique_list
+
         # print(new_paragraph)
         # if words in line.replace((" ".join(symbols)), ""):\
         # joined_symbols = ",".join(symbols)
         # for symb in symbols:
         # removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','" "',new_paragraph)
-        new = re.escape(string.punctuation)
-        print(new(new_paragraph))
-        return new(new_paragraph)
+        # new = re.escape(string.punctuation)
+        # print(new)
+        # return new
             # for words in para.split():
             # sentences = new_paragraph.splitlines()
             # for single_sentence in sentences:
