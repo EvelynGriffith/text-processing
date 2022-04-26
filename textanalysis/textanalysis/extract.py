@@ -1,13 +1,11 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
-
-# Add the required imports at the top of the file
-import re
-import string
-
-NEWLINES_RE = re.compile(r"\n{2,}")
-
 from typing import List
 from typing import Set
+# Add the required imports at the top of the file
+import re
+
+
+NEWLINES_RE = re.compile(r"\n{2,}")
 
 
 def extract_lines_including_blanks(input_lines: str) -> List[str]:
