@@ -1,6 +1,7 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 from typing import List
 from typing import Set
+
 # Add the required imports at the top of the file
 import re
 
