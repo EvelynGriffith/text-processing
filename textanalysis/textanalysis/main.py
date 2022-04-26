@@ -6,10 +6,13 @@
 from rich.console import Console
 
 from pathlib import Path
+
 # This will allow the main file to access the extract.py file from the textanalysis folder
 from textanalysis import extract
+
 # this will allow the main.py file to access the visualize.py file from the textanalysis folder.
 from textanalysis import visualize
+
 # this allows us to use a function called a cli function through cli = typer.Typer()
 import typer
 

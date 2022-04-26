@@ -1,6 +1,6 @@
 """Extract the paragraphs and other textual content from the paragraphs of text."""
 
-# Add the required imports at the top of the file 
+# Add the required imports at the top of the file
 import re
 import string
 
@@ -8,6 +8,7 @@ NEWLINES_RE = re.compile(r"\n{2,}")
 
 from typing import List
 from typing import Set
+
 
 def extract_lines_including_blanks(input_lines: str) -> List[str]:
     """Extract all of the lines, including the blanks lines."""
@@ -80,7 +81,7 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
     # extract the unique words in each of the paragraphs
     unique_list = []
 
-    symbols = [",", ".", "---"] 
+    symbols = [",", ".", "---"]
     for para in paragraphs:
         lines = para.splitlines()
         para_set = set()
@@ -102,24 +103,24 @@ def extract_unique_words_paragraphs(paragraphs: List[str]) -> List[Set[str]]:
 
     return unique_list
 
-        # print(new_paragraph)
-        # if words in line.replace((" ".join(symbols)), ""):\
-        # joined_symbols = ",".join(symbols)
-        # for symb in symbols:
-        # removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','" "',new_paragraph)
-        # new = re.escape(string.punctuation)
-        # print(new)
-        # return new
-            # for words in para.split():
-            # sentences = new_paragraph.splitlines()
-            # for single_sentence in sentences:
-            #     word = single_sentence.split(" ")
+    # print(new_paragraph)
+    # if words in line.replace((" ".join(symbols)), ""):\
+    # joined_symbols = ",".join(symbols)
+    # for symb in symbols:
+    # removed_paragraph = re.sub(',!@#$%^&*().?;:--+=1234567890/---[]','" "',new_paragraph)
+    # new = re.escape(string.punctuation)
+    # print(new)
+    # return new
+    # for words in para.split():
+    # sentences = new_paragraph.splitlines()
+    # for single_sentence in sentences:
+    #     word = single_sentence.split(" ")
 
-                # print(word)
-            #     if symb == words:
-            #         print(words)
-                # for symb in joined_symbols:
-                #     words = line.split(" ") 
+    # print(word)
+    #     if symb == words:
+    #         print(words)
+    # for symb in joined_symbols:
+    #     words = line.split(" ")
     #                 # if outputs is not None:
     #         unique_set.add(word)
     #         # print(unique_set)
