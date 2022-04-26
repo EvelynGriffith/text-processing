@@ -138,11 +138,17 @@ def extract_unique_words(sets: List[Set[str]]) -> Set[str]:
     # create a single set of strings that includes all of the words
     # that that are unique across all of the sets for each of the paragraphs
     # new_set = sets[0].union(*sets)
-    return sets[0].union(*sets)
+    unique_words = sets[0].union(*sets)
+    if len(unique_words) > 0:
+        return sets[0].union(*sets)
+    return {}
 
 
 def extract_common_words(sets: List[Set[str]]) -> Set[str]:
     """Extract all of the unique words shared in common by sets in a list."""
     # create a single set of strings that includes all of the words
     # that are found in every one of the sets for each paragraph in the text
-    return sets[0].intersection(*sets)
+    common_words = sets[0].intersection(*sets)
+    if len(common_words) > 0:
+        return sets[0].intersection(*sets)
+    return {}
